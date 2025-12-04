@@ -1,4 +1,3 @@
-import './header.css'
 import './HomePage.css'
 
 import { Header } from './Header';

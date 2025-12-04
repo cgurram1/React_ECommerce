@@ -1,4 +1,3 @@
-import './checkout-header.css'
 import './CheckoutPage.css'
 import { Header } from './Header';
 

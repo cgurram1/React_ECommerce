@@ -1,5 +1,4 @@
 import "./Orders.css"
-import "./header.css"
 
 import { Header } from "./Header";
 export function Orders(){
