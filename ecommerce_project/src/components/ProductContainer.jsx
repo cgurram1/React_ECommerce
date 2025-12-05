@@ -1,6 +1,6 @@
 export function ProductContainer(props) {
     const {productImage, productName, ratingsImage, ratings, price} = props;
-    const ratingsImageSrc = `images/ratings/${ratingsImage}.png`;
+    const ratingsImageSrc = `images/ratings/rating-${ratingsImage*10}.png`;
     const productPrice = `$${price/100}`;
     return (
         <>
