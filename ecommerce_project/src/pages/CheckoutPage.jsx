@@ -2,18 +2,16 @@ import { CartItemContainer } from '../components/CartItemContainer';
 import './CheckoutPage.css'
 import { Header } from './Header';
 import { useState, useEffect } from "react";
+import axios from 'axios';
 
 export function CheckoutPage() {
     const [cart, setCart] = useState([]);
     useEffect(() => {
-            fetch("http://localhost:8000/api/cart/")
-                .then(response => response.json())
-                .then(data => {
-                    setCart(data);       // update state
-                })
-                .catch(error => {
-                    console.error("Error fetching cart Items:", error);
-                });
+        async function getCart(){
+            const response = await axios.get("http://localhost:8000/api/cart/");
+            setCart(response.data); 
+        };
+        getCart();
         }, []);
     return (
         <>

@@ -1,5 +1,6 @@
 import { DeliveryOption } from "./DeliveryOption";
 import { useState, useEffect } from "react";
+import axios from 'axios';
 
 export function CartItemContainer(props) {
     const {deliveryDate, productName, productImage, productPrice, quantity, deliveryOption} = props;
@@ -9,11 +10,11 @@ export function CartItemContainer(props) {
 
     const [deliveryOptions, setDeliveryOptions] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:8000/api/cart/deliveryOptions')
-        .then(response => response.json())
-        .then(data => {
-            setDeliveryOptions(data);  
-        })
+        async function getDeliveryOptions(){
+            const response = await axios.get('http://localhost:8000/api/cart/deliveryOptions');
+            setDeliveryOptions(response.data);  
+        }
+        getDeliveryOptions();
     },[]);
     console.log("Chandra Kishore Reddy ");
     console.log(deliveryOptions);
